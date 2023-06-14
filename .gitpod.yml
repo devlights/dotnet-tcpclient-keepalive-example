@@ -1,0 +1,7 @@
+image: gitpod/workspace-dotnet@latest
+
+ports:
+  - name: Communication port
+    description: Port 12345 for the example
+    port: 12345
+    onOpen: ignore
