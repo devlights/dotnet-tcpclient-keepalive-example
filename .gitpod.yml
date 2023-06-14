@@ -1,5 +1,10 @@
 image: gitpod/workspace-dotnet:latest
 
+tasks:
+  - name: initial
+    init:
+      go install github.com/go-task/task/v3/cmd/task@latest
+
 ports:
   - name: Communication port
     description: Port 12345 for the example

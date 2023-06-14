@@ -1,0 +1,27 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  install-tcpdump:
+    cmds:
+      - sudo apt update
+      - sudo apt install tcpdump -y
+  clean:
+    cmds:
+      - dotnet clean
+  build:
+    cmds:
+      - dotnet build
+  server:
+    cmds:
+      - dotnet run --project server
+    interactive: true
+  client:
+    cmds:
+      - dotnet run --project client
+    interactive: true
+  capture:
+    cmds:
+      - sudo tcpdump -i lo 'tcp and port 12345 and tcp[13] & 16 != 0 and tcp[12] & 15 = 0'
+    interactive: true
